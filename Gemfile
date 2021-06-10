@@ -62,6 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+#TMDBのAPIを使用するのに使用するgem
 gem 'themoviedb-api', '~> 1.3'
 
 gem 'dotenv-rails'
