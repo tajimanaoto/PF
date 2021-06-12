@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
 
   resources :tweets
-  resources :users
+  resources :users, only: [:index, :show, :edit, :update]
 
   get 'movies/search'
   get 'movies/show'

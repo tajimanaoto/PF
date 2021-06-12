@@ -1,2 +1,25 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 pt-10">
+    <h2>会員情報編集</h2>
+    <%= form_with model:@user, local:true do |f| %>
+      <%#= render 'layouts/errors', obj: @user %>
+      <div class="field">
+       <%= f.label "名前" %><br />
+       <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "(姓)" %>
+       <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "(名)" %>
+      </div>
+      <div class="field">
+       <%= f.label "生年月日" %><br />
+       <%= f.date_select :birth_date, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989,1,1) %>
+      </div>
+      <div class="field">
+       <%= f.label :email %><br />
+       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="pt-2">
+        <%= f.submit class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
