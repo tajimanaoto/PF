@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 .card {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
@@ -43,4 +46,11 @@
 .card-upperinfo {
     height: 139px;
     overflow-y: scroll;
+}
+
+.hero {
+  height: 660px;
+  background: linear-gradient(to bottom left, #77c4e3, #8176b5);
+  background-size: cover;
+  background-position: center;
 }

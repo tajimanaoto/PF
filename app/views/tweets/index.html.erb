@@ -1,0 +1,13 @@
+<div class="row">
+<% @tweets.each do |tweet| %>
+  <div class="col-md-4">
+    <div class="card-index">
+      <div class="card-body text-center">
+        <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"card-img-top" %>
+       <h4 class="card-title"><%= tweet.title %></h4>
+       <p class="card-text"><%= tweet.description %></p>
+       <!--<a href="#" class="btn btn-primary">詳細を見る</a>-->
+      </div>
+    </div>
+  </div>
+<%end%>

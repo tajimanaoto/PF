@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "homes#top"
+  get 'home/about' => 'homes#about'
+
+  resources :tweets
+  resources :users
 
   get 'movies/search'
   get 'movies/show'
