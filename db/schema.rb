@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_06_12_063212) do
     t.string "first_name"
     t.string "profile_image_id"
     t.date "birth_date", null: false
-    t.text "description"
+    t.text "introduction"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

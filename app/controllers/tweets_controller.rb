@@ -11,13 +11,19 @@ class TweetsController < ApplicationController
   end
 
   def edit
+    @tweet = Tweet.find(params[:id])
+    if @tweet.user == current_user
+      render :edit
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def create
     @tweet = Tweet.new(tweets_params)
     @tweet.user_id = current_user.id
     if @tweet.save
-      redirect_to tweet_path(@tweet.id), notice: "投稿完了！"
+      redirect_to tweets_path, notice: "投稿完了！"
     else
       @tweets = Tweet.all
       render :index
@@ -25,6 +31,12 @@ class TweetsController < ApplicationController
   end
 
   def update
+    @tweet = Tweet.find(params[:id])
+    if @tweet.update(tweets_params)
+      redirect_to user_path(current_user), notice: "You have update tweet succssfully"
+    else
+      render :edit
+    end
   end
 
   def destroy

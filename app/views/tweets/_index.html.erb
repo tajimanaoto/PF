@@ -4,7 +4,7 @@
     <div class="card-index">
       <div class="card-body">
         <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"card-img-top" %>
-       <h4 class="card-title text-center"><%= tweet.title %></h4>
+       <h4 class="card-title text-center"><%= link_to tweet.title, edit_tweet_path(tweet) %></h4>
        <p class="card-text text-center"><%= tweet.description %></p>
         <div class="md-4">
           <%= link_to "削除", tweet_path(tweet), method: :delete %>
