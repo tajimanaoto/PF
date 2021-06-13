@@ -13,6 +13,10 @@
           <th><%= @user.description %></th>
         </tr>
       </table>
+       <%= link_to '',edit_user_path(@user),class: "btn btn-outline-secondary btn-block fas fa-user-cog " %>
     </div>
+  </div>
+  <div>
+    <%= render 'tweets/index', tweet: @tweet %>
   </div>
 </div>
