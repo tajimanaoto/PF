@@ -1,14 +1,20 @@
-<!--eachなどはdivに入れずに記載する-->
+<!--eachはdivに入れずに記載する-->
 <% tweet.each do |tweet| %>
-  <div class="col-md-4">
+  <div class="col border">
     <div class="card-index">
       <div class="card-body">
         <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"card-img-top" %>
-       <h4 class="card-title text-center"><%= link_to tweet.title, edit_tweet_path(tweet) %></h4>
+        <% if tweet.user.id == current_user.id %>
+         <h4 class="card-title text-center"><%= link_to tweet.title, edit_tweet_path(tweet) %></h4>
+        <% else %>
+         <h4 class="card-title text-center"><%=tweet.title %></h4>
+        <% end %>
        <p class="card-text text-center"><%= tweet.description %></p>
+       <% if tweet.user.id == current_user.id %>
         <div class="md-4">
           <%= link_to "削除", tweet_path(tweet), method: :delete %>
         </div>
+        <% end %>
        <!--<a href="#" class="btn btn-primary">詳細を見る</a>-->
       </div>
     </div>

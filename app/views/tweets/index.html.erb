@@ -7,10 +7,23 @@
        <h4 class="card-title text-center"><%= tweet.title %></h4>
        <p class="card-text text-center"><%= tweet.description %></p>
         <div class="md-4">
-          <%= attachment_image_tag @user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"mt-3 rounded-circle" %>
-          By <%= tweet.user.last_name %> <%= tweet.user.first_name %>
+          <%= attachment_image_tag tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
+          <!--last_nameとfirst_nameを足して表示することでフルネームとして表示-->
+          By <%= link_to tweet.user.last_name + tweet.user.first_name, user_path(tweet.user.id) %>
         </div>
-       <!--<a href="#" class="btn btn-primary">詳細を見る</a>-->
+        <% if tweet.favorited_by?(current_user) %>
+        <p>
+          <%= link_to tweet_favorites_path(tweet), method: :delete do %>
+           ♥<%= tweet.favorites.count %>いいね
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to tweet_favorites_path(tweet), method: :post do %>
+           ♡<%= tweet.favorites.count %>いいね
+          <% end %>
+        </p>
+        <% end %>
       </div>
     </div>
   </div>

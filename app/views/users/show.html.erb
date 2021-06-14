@@ -1,22 +1,19 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-3'>
-      <%#= render 'info', user: @user %>
+    <div class='col-md-3 mt-3'>
       <table class='table'>
         <tr><%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "no_image_icon.jpg"  %></tr>
         <tr>
-          <th>名前</th>
           <th><%= @user.last_name %> <%= @user.first_name %></th>
         </tr>
         <tr>
-          <th>自己紹介</th>
           <th><%= @user.introduction %></th>
         </tr>
       </table>
        <%= link_to '',edit_user_path(@user),class: "btn btn-outline-secondary btn-block fas fa-user-cog " %>
     </div>
-  </div>
-  <div>
-    <%= render 'tweets/index', tweet: @tweet %>
+    <div class="col-md-9">
+    　<%= render 'tweets/index', tweet: @tweet %>
+  　</div>
   </div>
 </div>
