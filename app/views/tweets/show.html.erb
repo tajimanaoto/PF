@@ -1,2 +1,24 @@
-<h1>Tweets#show</h1>
-<p>Find me in app/views/tweets/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-1">
+      <%= attachment_image_tag @tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
+    </div>
+    <div class="col-11 mt-3 ">
+      <%= link_to @tweet.user.last_name + @tweet.user.first_name, user_path(@tweet.user.id) %>
+      <div class="d-flex justify-content-end">
+        <div><%= render "favorites/favorite", tweet: @tweet %></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= attachment_image_tag @tweet, :image, fallback: "no_image_icon.jpg", class:"card-img-top" %>
+    </div>
+    <div class="col">
+      <h6>タイトル</h6>
+      <h4><%= @tweet.title %></h4><br>
+      <h6>見どころ・ポイント</h6><br>
+      <h4><%= @tweet.description %></h4>
+    </div>
+  </div>
+</div>
