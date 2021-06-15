@@ -4,7 +4,7 @@
       <table class='table'>
         <tr><%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "no_image_icon.jpg"  %></tr>
         <tr>
-          <th>名前<br><%= @user.last_name %> <%= @user.first_name %></th>
+          <th>名前<%= @user.last_name %> <%= @user.first_name %></th>
         </tr>
         <tr>
           <th><%= @user.introduction %></th>

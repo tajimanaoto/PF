@@ -1,6 +1,6 @@
 <!--eachはdivに入れずに記載する-->
 <% tweet.each do |tweet| %>
-  <div class="col border">
+  <div class="col border mt-5">
     <div class="card-index">
       <div class="card-body">
         <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"card-img-top" %>
