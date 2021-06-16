@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mt-2">
   <div class="row">
-    <div class="col-1">
+    <div class="col-1 mt-1">
       <%= attachment_image_tag @tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
     </div>
     <div class="col-11 mt-3 ">
@@ -27,7 +27,37 @@
       <h6>タイトル</h6>
       <h4><%= @tweet.title %></h4><br>
       <h6>見どころ・ポイント</h6><br>
-      <h4><%= @tweet.description %></h4>
+      <h4><%= @tweet.description %></h4><br>
+      <!-- モーダルエリアここから -->
+      <button id="openModal">コメント</button>
+      <section id="modalArea" class="modalArea">
+         <div id="modalBg" class="modalBg"></div>
+          <div class="modalWrapper">
+            <div class="col">
+              <%= form_with(model:[@tweet, @tweet_comment], local: true) do |f| %>
+               <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+               <%= f.submit "コメントする" %>
+              <% end %>
+            </div>
+            <div id="closeModal" class="closeModal">
+             ×
+            </div>
+          </div>
+        </section>
+      <!-- モーダルエリアここまで -->
+      <p>コメント件数：<%= @tweet.tweet_comments.count %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <% @tweet.tweet_comments.each do |tweet_comment| %>
+       <%= tweet_comment.user.last_name %>
+       <%= tweet_comment.created_at.strftime('%Y/%m/%d') %>
+       <%= tweet_comment.comment %>
+        <%# if @tweet.user == current_user %>
+         <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet.id, tweet_comment.id), method: :delete %>
+        <%# end %>
+      <% end %>
     </div>
   </div>
 </div>
