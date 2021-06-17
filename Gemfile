@@ -68,6 +68,7 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'acts-as-taggable-on', '~> 6.0'
 #TMDBのAPIを使用するのに使用するgem
 gem 'themoviedb-api', '~> 1.3'
 

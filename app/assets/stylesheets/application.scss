@@ -17,6 +17,10 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.box {
+  flex-direction: row;
+}
+
 .card {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
     border-radius: 10px;

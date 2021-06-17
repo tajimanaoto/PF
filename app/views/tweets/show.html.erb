@@ -15,7 +15,9 @@
             <% end %>
           <% end %>
         </div>
-        <div><%= render "favorites/favorite", tweet: @tweet %></div>
+        <div id="favorite-btn-<%= @tweet.id %>">
+          <%= render "favorites/favorite", tweet: @tweet %>
+        </div>
       </div>
     </div>
   </div>

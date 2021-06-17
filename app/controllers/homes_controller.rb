@@ -4,4 +4,7 @@ class HomesController < ApplicationController
 
   def about
   end
+
+  def rank
+  end
 end

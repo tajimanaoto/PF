@@ -23,4 +23,5 @@ class TweetCommentsController < ApplicationController
     params.require(:tweet_comment).permit(:comment)
   end
 
+
 end
