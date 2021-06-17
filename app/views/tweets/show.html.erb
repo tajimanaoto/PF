@@ -49,15 +49,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <% @tweet.tweet_comments.each do |tweet_comment| %>
-       <%= tweet_comment.user.last_name %>
-       <%= tweet_comment.created_at.strftime('%Y/%m/%d') %>
-       <%= tweet_comment.comment %>
-        <%# if @tweet.user == current_user %>
-         <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet.id, tweet_comment.id), method: :delete %>
-        <%# end %>
-      <% end %>
+    <div id="tweet-comment-<%= @tweet.id %>"  class="col">
+      <%= render "tweet_comments/index", tweet_comments: @tweet.tweet_comments %>
     </div>
   </div>
 </div>

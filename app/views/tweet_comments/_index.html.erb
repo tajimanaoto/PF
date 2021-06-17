@@ -1,0 +1,8 @@
+<% tweet_comments.each do |tweet_comment| %>
+    <%= tweet_comment.user.last_name %>
+    <%= tweet_comment.created_at.strftime('%Y/%m/%d') %>
+    <%= tweet_comment.comment %>
+    <%# if @tweet.user == current_user %>
+     <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet.id, tweet_comment.id), method: :delete, remote: true %>
+    <%# end %>
+ <% end %>

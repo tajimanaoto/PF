@@ -14,7 +14,6 @@ class TweetCommentsController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
     @tweet_comment = @tweet.tweet_comments.find(params[:id])
     @tweet_comment.destroy
-    redirect_to request.referer
   end
 
 

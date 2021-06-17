@@ -1,0 +1,1 @@
+$("#tweet-comment-<%= @tweet.id %>").html("<%= j(render 'tweet_comments/index', tweet_comments: @tweet.tweet_comments) %>");
