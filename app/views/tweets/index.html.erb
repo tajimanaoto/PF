@@ -11,7 +11,9 @@
           <!--last_nameとfirst_nameを足して表示することでフルネームとして表示-->
           By <%= link_to tweet.user.last_name + tweet.user.first_name, user_path(tweet.user.id) %>
         </div>
-        <%= render "favorites/favorite", tweet: tweet %>
+        <div id="favorite-btn-<%= tweet.id %>">
+          <%= render "favorites/favorite", tweet: tweet %>
+        </div>
       </div>
     </div>
   </div>
