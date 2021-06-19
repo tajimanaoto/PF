@@ -20,7 +20,7 @@
  </div>
 
  <div class="form-group">
-    <%= f.label :tag_list, "タグ" %><br>
+    <%= f.label :tag_list, "タグ" %> ※カンマで区切ると複数のタグを登録できます<br>
     <%= f.text_field :tag_list, value: @tweet.tag_list.join(','), class: "form_control" %>
  </div>
 

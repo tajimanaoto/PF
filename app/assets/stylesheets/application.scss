@@ -17,6 +17,18 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.top {
+  height: 100%;
+}
+
 .box {
   flex-direction: row;
 }
@@ -105,8 +117,6 @@ button {
 }
 
 #openModal {
-  position: absolute;
   top: 33%;
   left: 50%;
-  transform:translate(-50%,-50%);
 }

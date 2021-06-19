@@ -20,7 +20,7 @@ class TweetCommentsController < ApplicationController
   private
 
   def tweet_comment_params
-    params.require(:tweet_comment).permit(:comment)
+    params.require(:tweet_comment).permit(:comment, :rate)
   end
 
 

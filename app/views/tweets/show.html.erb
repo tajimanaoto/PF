@@ -26,20 +26,40 @@
       <%= attachment_image_tag @tweet, :image, fallback: "no_image_icon.jpg", class:"card-img-top" %>
     </div>
     <div class="col">
-      <h6>タイトル</h6>
-      <h4><%= @tweet.title %></h4><br>
-      <h6>見どころ・ポイント</h6><br>
+      <div>
+        <h6>タイトル</h6>
+      </div>
+      <div>
+        <h4><%= @tweet.title %></h4>
+      </div>
+      <div>
+        <h6>見どころ・ポイント</h6>
+      </div>
       <h4><%= @tweet.description %></h4><br>
       <!-- モーダルエリアここから -->
-      <button id="openModal">コメント</button>
+      <div class="col">
+        <button id="openModal">コメント</button>
+      </div>
       <section id="modalArea" class="modalArea">
          <div id="modalBg" class="modalBg"></div>
           <div class="modalWrapper">
             <div class="col">
               <%= form_with(model:[@tweet, @tweet_comment], local: true) do |f| %>
+                <div id="stars">
+                 <label>評価</label>
+                </div>
                <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
                <%= f.submit "コメントする" %>
               <% end %>
+              <!--raty(評価機能)のjsはここに記載する-->
+              <script>
+                $('#stars').raty({
+                 starOn: "<%= asset_path('star-on.png') %>",
+                 starOff: "<%= asset_path('star-off.png') %>",
+                 starHalf: "<%= asset_path('star-half.png') %>",
+                 scoreName: 'tweet_comment[rate]' //登録するモデル名とカラム名を記述
+                });
+              </script>
             </div>
             <div id="closeModal" class="closeModal">
              ×
@@ -47,7 +67,9 @@
           </div>
         </section>
       <!-- モーダルエリアここまで -->
-      <p>コメント件数：<%= @tweet.tweet_comments.count %></p>
+      <div id="comment-<%= @tweet.id %>" class="mt-2">
+        コメント件数：<%= @tweet.tweet_comments.count %>
+      </div>
     </div>
   </div>
   <div class="row">
