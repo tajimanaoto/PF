@@ -1,17 +1,20 @@
-<div class="row bg-info">
+<div class="container mt-4">
 <% @tweets.each do |tweet| %>
-  <div class="col-md-4 border border-dark">
-    <div class="card-index">
+  <div class="row border border-dark bg-light bg-gradient mt-4">
+    <div class="d-flex justify-content-center">
+      <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"tweet-image" %>
+    </div>
       <div class="card-body">
-        <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"card-img-top" %>
         <% if user_signed_in? %>
         <!--link_toの中に遷移先の画面のturbolinkを切る記述を追加することでjavascriptをちゃんと動作するようにした-->
-          <h4 class="card-title text-center"><%= link_to tweet.title, tweet_path(tweet.id), class:'hoge',data: {"turbolinks"=>false} %></h4>
+          <h3 class="card-title text-center"><%= link_to tweet.title, tweet_path(tweet.id), class:'hoge',data: {"turbolinks"=>false} %></h3>
         <% else %>
-         <h4 class="card-title text-center"><%= tweet.title %></h4>
+         <h3 class="card-title text-center"><%= tweet.title %></h3>
         <% end %>
-       <p class="card-text text-center"><%= tweet.description %></p>
-        <div class="md-4">
+        <div class="pb-5">
+          <h4 class="card-text text-start"><%= tweet.description %></h4>
+        </div>
+        <div class="align-self-end">
           <%= attachment_image_tag tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
           <!--last_nameとfirst_nameを足して表示することでフルネームとして表示-->
           <% if user_signed_in? %>
@@ -19,14 +22,13 @@
           <% else %>
            By <%= tweet.user.last_name + tweet.user.first_name %>
           <% end %>
-        </div>
-        <p>
-          タグ: <%= tweet.tag_list %>
-        </p>
-        <div id="favorite-btn-<%= tweet.id %>">
-          <%= render "favorites/favorite", tweet: tweet %>
+          <p>
+            タグ: <%= tweet.tag_list %>
+          </p>
+          <div id="favorite-btn-<%= tweet.id %>">
+            <%= render "favorites/favorite", tweet: tweet %>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 <%end%>
