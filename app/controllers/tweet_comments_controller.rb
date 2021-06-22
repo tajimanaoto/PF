@@ -6,8 +6,11 @@ class TweetCommentsController < ApplicationController
     @tweet_comment = TweetComment.new(tweet_comment_params)
     @tweet_comment.tweet_id = @tweet.id
     @tweet_comment.user_id = current_user.id
-    @tweet_comment.save
-     redirect_to request.referer
+    if @tweet_comment.save
+     redirect_to request.referer, notice: "コメントしました"
+    else
+     redirect_to request.referer, notice: "コメントできませんでした"
+    end
   end
 
   def destroy

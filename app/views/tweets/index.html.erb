@@ -1,21 +1,21 @@
 <div class="container mt-4">
 <% @tweets.each do |tweet| %>
-  <div class="row border border-dark bg-light bg-gradient mt-4">
-    <div class="d-flex justify-content-center">
+  <div class="row no-gutters border border-dark bg-light bg-gradient mt-4">
+    <div class="col-6">
       <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"tweet-image" %>
     </div>
-      <div class="card-body">
+      <div class="col-6 position-relative">
         <% if user_signed_in? %>
         <!--link_toの中に遷移先の画面のturbolinkを切る記述を追加することでjavascriptをちゃんと動作するようにした-->
           <h3 class="card-title text-center"><%= link_to tweet.title, tweet_path(tweet.id), class:'hoge',data: {"turbolinks"=>false} %></h3>
         <% else %>
-         <h3 class="card-title text-center"><%= tweet.title %></h3>
+         <h3 class="text-center"><%= tweet.title %></h3>
         <% end %>
         <div class="pb-5">
-          <h4 class="card-text text-start"><%= tweet.description %></h4>
+          <h4 class="text-start text-break"><%= tweet.description %></h4>
         </div>
-        <div class="align-self-end">
-          <%= attachment_image_tag tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
+        <div class="">
+            <%= attachment_image_tag tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
           <!--last_nameとfirst_nameを足して表示することでフルネームとして表示-->
           <% if user_signed_in? %>
            By <%= link_to tweet.user.last_name + tweet.user.first_name, user_path(tweet.user.id) %>

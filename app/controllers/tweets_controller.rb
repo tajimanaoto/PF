@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
       redirect_to tweets_path, notice: "投稿完了！"
     else
       @tweets = Tweet.all
-      render :index
+      render :new
     end
   end
 
