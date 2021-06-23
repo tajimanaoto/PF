@@ -10,6 +10,6 @@ AddMissingTaggableIndex.class_eval do
   end
 
   def self.down
-    remove_index ActsAsTaggableOn.taggings_table, name: 'taggings_taggable_context_idx'
+    #remove_index ActsAsTaggableOn.taggings_table, name: 'taggings_taggable_context_idx'
   end
 end
