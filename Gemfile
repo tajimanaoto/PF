@@ -72,6 +72,9 @@ gem 'acts-as-taggable-on', '~> 6.0'
 #TMDBのAPIを使用するのに使用するgem
 gem 'themoviedb-api', '~> 1.3'
 
+gem 'rubocop', require:false
+gem 'rubocop-rails', require:false
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

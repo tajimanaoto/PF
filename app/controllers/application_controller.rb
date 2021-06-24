@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   #deviseのコントローラーが動いているかどうか確認し、動いていたらconfigure_permitted_parametersの値を持ってくるコード
   before_action :configure_permitted_parameters , if: :devise_controller?
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for
     tweets_path
   end
 
