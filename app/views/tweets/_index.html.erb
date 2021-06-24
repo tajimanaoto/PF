@@ -4,7 +4,7 @@
     <div class="card-body">
       <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"card-img-top" %>
       <% if tweet.user.id == current_user.id %>
-        <h4 class="card-title text-center"><%= link_to tweet.title, tweet_path(tweet) %></h4>
+        <h4 class="card-title text-center"><%= link_to tweet.title, tweet_path(tweet), class:'hoge',data: {"turbolinks"=>false} %></h4>
       <% else %>
         <h4 class="card-title text-center"><%=tweet.title %></h4>
       <% end %>
