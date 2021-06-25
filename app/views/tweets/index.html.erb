@@ -1,10 +1,10 @@
-<div class="container mt-4">
+<div class="container mt-4 position-relative">
 <% @tweets.each do |tweet| %>
   <div class="row no-gutters border border-dark bg-light bg-gradient mt-4">
     <div class="col-6">
       <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"tweet-image" %>
     </div>
-      <div class="col-6 position-relative">
+      <div class="col-6 pr-3 position-relative">
         <% if user_signed_in? %>
         <!--link_toの中に遷移先の画面のturbolinkを切る記述を追加することでjavascriptをちゃんと動作するようにした-->
           <h3 class="card-title text-center"><%= link_to tweet.title, tweet_path(tweet.id), class:'hoge',data: {"turbolinks"=>false} %></h3>

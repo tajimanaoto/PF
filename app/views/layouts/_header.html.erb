@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light bg-dark">
     <div class="container">
-      <a href="/" class="navbar-brand">Share Theater</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar9">
+      <a href="/" class="navbar-brand text-light">Share Theater</a>
+      <button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbar9">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse" id="navbar9">
@@ -15,8 +15,8 @@
         　<% else %>
         　<li><%= link_to " 投稿一覧", tweets_path, class:"fas fa-home nav-link text-light"%></li>
         　<li><%= link_to " About", home_about_path, class:"fas fa-link nav-link text-light"%></li>
-        　<li><%= link_to " sign up", new_user_registration_path, class:"fas fa-user-plus nav-link text-light"%></li>
-        　<li><%= link_to " login", new_user_session_path, class:"fas fa-sign-in-alt nav-link text-light"%></li>
+        　<li><%= link_to " 会員登録", new_user_registration_path, class:"fas fa-user-plus nav-link text-light"%></li>
+        　<li><%= link_to " ログイン", new_user_session_path, class:"fas fa-sign-in-alt nav-link text-light"%></li>
         　<% end %>
         </ul>
       </div>

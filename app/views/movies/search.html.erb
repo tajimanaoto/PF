@@ -1,5 +1,5 @@
-  <div>
-   <h1>映画検索</h1>
+  <div class="container position-relative">
+   <h1 class="text-light">映画検索</h1>
    <div>
     <%= form_tag(movies_search_path, method: :get) do %>
     <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title...' %>
@@ -12,7 +12,7 @@
 
   <%if params[:looking_for].present? %>
     <% movieinfo = JSON.parse((Tmdb::Search.movie(params[:looking_for])).to_json) %>
-    <h2 class="text-center mb-3"><%= params[:looking_for] %>の検索結果</h2>
+    <h2 class="text-center mb-3 text-light position-relative"><%= params[:looking_for] %>の検索結果</h2>
     <% i = 0 %>
     <div class="card-wrapper">
       <% while i < movieinfo['table']['results'].count %>
@@ -34,7 +34,7 @@
     </div>
   <%else%>
     <%# 検索されていない時にトレンドコンテンツを表示する %>
-    <h2 class="text-center">本日の世界のトレンド</h2>
+    <h2 class="text-center text-light position-relative">本日の世界のトレンド</h2>
     <% movieinfo = JSON.parse((Tmdb::Movie.popular).to_json) %>
     <% i = 0 %>
     <div class="card-wrapper">

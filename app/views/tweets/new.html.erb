@@ -1,4 +1,4 @@
-<div class="container jumbotron mt-3">
+<div class="container jumbotron mt-3 position-relative">
    <h1>新規投稿</h1>
 <%= form_with model:@tweet, local:true do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
@@ -12,7 +12,7 @@
  </div>
  <div class="form-group">
     <%= f.label :description, "おすすめポイント・見どころ" %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, size: "100x5" %>
  </div>
  <div class="form-group">
     <%= f.label :tag_list, "タグ" %> ※カンマで区切ると複数のタグを登録できます<br>
