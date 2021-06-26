@@ -14,6 +14,7 @@ class User < ApplicationRecord
   attachment :profile_image
 
   has_many :favorites, dependent: :destroy
+  has_many :favorite_tweets, through: :favorites, source: :tweet
 
   has_many :reverth_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverth_of_relationships, source: :follower

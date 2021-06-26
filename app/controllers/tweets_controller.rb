@@ -1,6 +1,9 @@
 class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
+    if params[:tag_name]
+     @tweets = Tweet.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def show

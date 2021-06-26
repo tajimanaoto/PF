@@ -26,5 +26,13 @@
     <div class="col-md-9">
     　<%= render 'tweets/index', tweet: @tweet %>
   　</div>
+  　<div class="container-fluid jumbotron position-relative pt-0">
+  　  <h3>お気に入り一覧</h3>
+  　  <% @favorite_tweets.each do |tweet|%>
+  　  <li>
+  　    <%= link_to tweet.title, tweet_path(tweet.id) %>
+  　  </li>
+  　  <% end %>
+  　</div>
   </div>
 </div>
