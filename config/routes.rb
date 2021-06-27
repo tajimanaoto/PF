@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get 'home/about' => 'homes#about'
   get 'home/rank' => 'homes#rank'
+  get 'relationship/followers' => 'relationship#followers'
+  get 'relationship/followings' => 'relationship#followings'
 
   resources :tweets do
    resource :favorites, only: [:create, :destroy]

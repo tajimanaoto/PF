@@ -2,7 +2,7 @@
 <% tweet.each do |tweet| %>
   <div class="col border bg-light mt-3">
     <div class="card-body">
-      <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", size:"700", class:"card-img-top" %>
+      <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", size:"700", class:"card-img" %>
       <% if tweet.user.id == current_user.id %>
         <h4 class="card-title text-center"><%= link_to tweet.title, tweet_path(tweet), class:'hoge',data: {"turbolinks"=>false} %></h4>
       <% else %>
