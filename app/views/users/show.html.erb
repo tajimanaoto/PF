@@ -33,7 +33,7 @@
   　  <h3>お気に入り一覧</h3>
   　  <% @favorite_tweets.each do |tweet|%>
   　  <li>
-  　    <%= link_to tweet.title, tweet_path(tweet.id) %>
+  　    <%= link_to tweet.title, tweet_path(tweet.id), data: {"turbolinks"=>false} %>
   　  </li>
   　  <% end %>
   　</div>
