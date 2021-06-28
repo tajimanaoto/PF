@@ -7,10 +7,10 @@
       <div class="navbar-collapse collapse " id="navbar9">
         <ul class="navbar-nav box d-flex justify-content-end">
         　<% if user_signed_in? %>
-        　<li><%= link_to " 新規投稿", new_tweet_path, class:"fas fa-users nav-link text-light"%></li>
+        　<li><%= link_to " 新規投稿", new_tweet_path, class:"fas fa-file-upload nav-link text-light"%></li>
         　<li><%= link_to " 投稿一覧", tweets_path, class:"fas fa-home nav-link text-light"%></li>
         　<li><%= link_to " マイページ", user_path(current_user.id), class:"fas fa-user nav-link text-light"%></li>
-        　<li><%= link_to " 映画検索",  movies_search_path, class:"fas fa-book-open nav-link text-light"%></li>
+        　<li><%= link_to " 映画検索",  movies_search_path, class:"fas fa-film nav-link text-light"%></li>
         　<li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt nav-link text-light" %></li>
         　<% else %>
         　<li><%= link_to " 投稿一覧", tweets_path, class:"fas fa-home nav-link text-light"%></li>
