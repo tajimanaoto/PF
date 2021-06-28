@@ -14,7 +14,7 @@
         <div class="pb-5">
           <h4 class="text-start text-break"><%= tweet.description %></h4>
         </div>
-        <div class="">
+        <div class="row d-flex flex-column">
           <p>
             タグ:
             <% tweet.tag_list.each do |tweet_tag| %>
@@ -24,9 +24,11 @@
             <%= attachment_image_tag tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
           <!--last_nameとfirst_nameを足して表示することでフルネームとして表示-->
           <% if user_signed_in? %>
-           By <%= link_to tweet.user.last_name + tweet.user.first_name, user_path(tweet.user.id) %>
+          <p>
+            <%= link_to tweet.user.last_name + tweet.user.first_name, user_path(tweet.user.id) %>
+          </p>
           <% else %>
-           By <%= tweet.user.last_name + tweet.user.first_name %>
+            <%= tweet.user.last_name + tweet.user.first_name %>
           <% end %>
           <div id="favorite-btn-<%= tweet.id %>">
             <%= render "favorites/favorite", tweet: tweet %>

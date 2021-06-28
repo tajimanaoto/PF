@@ -1,10 +1,10 @@
 <!--eachはdivに入れずに記載する-->
 <% tweet.each do |tweet| %>
-  <div class="row no-gutters border border-dark bg-light bg-gradient mt-4">
-    <div class="col-6">
-      <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", size:"700", class:"card-img" %>
+  <div class="row d-flex justify-content-between no-gutters border border-dark bg-light bg-gradient mt-4">
+    <div class="col-md-6 col-sm-6">
+      <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", size:"auto", class:"tweet-image" %>
     </div>
-    <div class="col-6 card-body position-relative">
+    <div class="col-md-5 col-sm-5 card-body position-relative">
       <% if tweet.user.id == current_user.id %>
         <h4 class="card-title text-center"><%= link_to tweet.title, tweet_path(tweet), class:'hoge',data: {"turbolinks"=>false} %></h4>
       <% else %>
@@ -12,10 +12,8 @@
       <% end %>
       <div class="card-text text-center mb-5"><%= tweet.description %></div>
       <% if tweet.user.id == current_user.id %>
-      <div class="col-6 position-absolute bottom-0 start-0">
         <%= link_to "編集", edit_tweet_path(tweet), class: "btn btn-primary" %>
         <%= link_to "削除", tweet_path(tweet), class:"btn btn-danger" ,method: :delete, data: {confirm: "削除しますか？"} %>
-      </div>
       <% end %>
     </div>
   </div>
