@@ -26,6 +26,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweets_params)
+    @tweet.score = Language.get_data(tweets_params[:description])  #この行を追加
     @tweet.user_id = current_user.id
     if @tweet.save
       redirect_to tweets_path, notice: "投稿完了！"
