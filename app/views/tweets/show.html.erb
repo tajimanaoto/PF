@@ -36,6 +36,9 @@
         <h6>見どころ・ポイント</h6>
       </div>
       <h4><%= @tweet.description %></h4><br>
+        <p>
+          <span class="sentiment-score">感情分析スコア<%= @tweet.score %></span>
+        </p>
       <!-- モーダルエリアここから -->
       <div class="col">
         <button id="openModal">コメント</button>
