@@ -22,7 +22,7 @@
             <% end %>
           </p>
           <p>
-            <span class="sentiment-score">本文の感情分析スコア<%= tweet.score %></span>
+            <span class="sentiment-score">感情分析スコア<%= tweet.score %></span>
           </p>
             <%= attachment_image_tag tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
           <!--last_nameとfirst_nameを足して表示することでフルネームとして表示-->
