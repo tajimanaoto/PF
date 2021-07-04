@@ -5,6 +5,7 @@
       <th>名前</th>
       <th>評価</th>
       <th>コメント</th>
+      <th>投稿日</th>
       <th> </th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
         <td class="border border-dark border-right-0"><%= tweet_comment.user.last_name + tweet_comment.user.first_name %></td>
         <td class="movie-rate border border-dark border-left-0 border-right-0" data-score="<%= tweet_comment.rate %>"></td>
         <td class="border border-dark border-right-0 border-dark border-left-0"><%= tweet_comment.comment %></td>
+        <td class="border border-dark border-right-0 border-dark border-left-0"><%= tweet_comment.created_at %></td>
         <td class="border border-dark border-left-0">
           <% if tweet_comment.user == current_user %>
             <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet.id, tweet_comment.id), method: :delete, remote: true %>
