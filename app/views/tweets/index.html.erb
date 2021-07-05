@@ -21,9 +21,15 @@
              <%= link_to tweet_tag, tweets_path(tag_name: tweet_tag) %>
             <% end %>
           </p>
-          <p>
-            <span class="sentiment-score">感情分析スコア<%= tweet.score %></span>
-          </p>
+          <% if 0 < tweet.score %>
+           <p>
+             <span class="sentiment-score text-success">良かったね<%= tweet.score %></span>
+            </p>
+          <% else %>
+            <p>
+             <span class="sentiment-score text-danger">悲しかったね<%= tweet.score %></span>
+            </p>
+          <% end %>
             <%= attachment_image_tag tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
           <!--last_nameとfirst_nameを足して表示することでフルネームとして表示-->
           <% if user_signed_in? %>
