@@ -11,6 +11,7 @@ module Language
       params = {
         document: {
           type: 'PLAIN_TEXT',
+          language: 'ja',
           content: text
         }
       }.to_json

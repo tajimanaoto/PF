@@ -11,6 +11,9 @@
         <h4 class="card-title text-center"><%=tweet.title %></h4>
       <% end %>
       <div class="card-text text-center mb-5"><%= tweet.description %></div>
+      <p>
+        <span class="sentiment-score">感情分析スコア<%= tweet.score %></span>
+      </p>
       <% if tweet.user.id == current_user.id %>
         <%= link_to "編集", edit_tweet_path(tweet), class: "btn btn-primary" %>
         <%= link_to "削除", tweet_path(tweet), class:"btn btn-danger" ,method: :delete, data: {confirm: "削除しますか？"} %>

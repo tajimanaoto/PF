@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.page(params[:page]).reverse_order
     if params[:tag_name]
      @tweets = Tweet.tagged_with("#{params[:tag_name]}")
     end

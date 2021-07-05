@@ -30,12 +30,25 @@
     　<%= render 'tweets/index', tweet: @tweet %>
   　</div>
   　<div class="container-fluid jumbotron position-relative pt-0">
-  　  <h3>お気に入り一覧</h3>
-  　  <% @favorite_tweets.each do |tweet|%>
-  　  <li>
-  　    <%= link_to tweet.title, tweet_path(tweet.id), data: {"turbolinks"=>false} %>
-  　  </li>
-  　  <% end %>
+  　  <h3>お気に入り投稿一覧</h3>
+  　  <table class="table">
+        <thead class="thead-dark">
+          <tr>
+           <th>タイトル</th>
+           <th>投稿者</th>
+           <th>投稿日</th>
+          </tr>
+        </thead>
+        <tbody class="border border-dark">
+          <% @favorite_tweets.each do |tweet|%>
+          <tr>
+            <td class="border border-dark border-right-0"> <%= link_to tweet.title, tweet_path(tweet.id), data: {"turbolinks"=>false} %></td>
+            <td class="movie-rate border border-dark border-left-0 border-right-0"><%= tweet.user.last_name + tweet.user.first_name %></td>
+            <td class="border border-dark border-right-0 border-dark border-left-0"><%= tweet.created_at %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
   　</div>
   </div>
 </div>
