@@ -27,7 +27,7 @@
             </p>
           <% else %>
             <p>
-             <span class="sentiment-score text-danger">悲しかったね<%= tweet.score %></span>
+             <span class="sentiment-score text-info">悲しかったね<%= tweet.score %></span>
             </p>
           <% end %>
             <%= attachment_image_tag tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
