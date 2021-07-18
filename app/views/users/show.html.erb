@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-lg-3 col-md-3 mt-3 h-25 d-inline-block jumbotron'>
       <table class='table'>
-        <tr><%= attachment_image_tag @user, :profile_image_id, size: "100x100", fallback: "no_image_icon.jpg"  %></tr>
+        <tr><%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "no_image_icon.jpg" %></tr>
         <tr>
           <th>名前　<%= @user.last_name %> <%= @user.first_name %></th>
         </tr>
