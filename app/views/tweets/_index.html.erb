@@ -1,7 +1,7 @@
 <!--eachはdivに入れずに記載する-->
 <% tweet.each do |tweet| %>
   <div class="row d-flex justify-content-between no-gutters border border-dark bg-light bg-gradient mt-4">
-    <div class="col-lg- col-md-6 col-sm-6">
+    <div class="col-lg-6 col-sm-6 col-md-6 col-sm-6">
       <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", size:"auto", class:"tweet-image" %>
     </div>
     <div class="col-md-5 col-sm-5 card-body position-relative">
