@@ -4,7 +4,7 @@
     <div class="col-md-6 col-lg-6 col-sm-6">
       <%= attachment_image_tag tweet, :image, fallback: "no_image_icon.jpg", class:"tweet-image" %>
     </div>
-      <div class="col-6 pr-3 mt-3 position-relative">
+      <div class="col-md-6 pr-3 mt-3 position-relative">
         <% if user_signed_in? %>
         <!--link_toの中に遷移先の画面のturbolinkを切る記述を追加することでjavascriptをちゃんと動作するようにした-->
           <h3 class="card-title text-center"><%= link_to tweet.title, tweet_path(tweet.id), data: {"turbolinks"=>false} %></h3>
