@@ -3,7 +3,7 @@
     <div class="col-md-1 col-lg-1 col-sm-1 mt-1">
       <%= attachment_image_tag @tweet.user, :profile_image, size:"60x60", fallback: "no_image_icon.jpg", class:"rounded-circle" %>
     </div>
-    <div class="col-md-11 mt-3 ">
+    <div class="col-md-11 col-lg-11 mt-3 ">
       <%= link_to @tweet.user.last_name + @tweet.user.first_name, user_path(@tweet.user.id) %>
       <div class="d-flex justify-content-between">
         <div>
